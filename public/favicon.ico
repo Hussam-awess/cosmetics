@@ -1,0 +1,8 @@
+# This is a placeholder for favicon.ico
+# In production, you should convert your Niffer logo.jpeg to:
+# - favicon.ico (32x32, 16x16 sizes)
+# - icon-192x192.png (for Android)
+# - icon-512x512.png (for Android)
+# - apple-touch-icon.png (180x180 for iOS)
+
+# For now, we'll use the existing icons and update the metadata to use your logo
