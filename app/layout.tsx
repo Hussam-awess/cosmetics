@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next'
 import { Cormorant_Garamond, Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { Favicon } from '@/components/favicon'
+import { ErrorBoundary } from '@/components/error-boundary'
 import './globals.css'
 
 const cormorant = Cormorant_Garamond({ 
@@ -48,8 +49,10 @@ export default function RootLayout({
         <Favicon />
       </head>
       <body className="font-sans antialiased">
-        {children}
-        {process.env.NODE_ENV === 'production' && <Analytics />}
+        <ErrorBoundary>
+          {children}
+          {process.env.NODE_ENV === 'production' && <Analytics />}
+        </ErrorBoundary>
       </body>
     </html>
   )
