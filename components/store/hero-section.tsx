@@ -2,34 +2,8 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { useRouter } from 'next/navigation'
 
 export function HeroSection() {
-  const router = useRouter()
-
-  const handleShopNow = (e: React.MouseEvent) => {
-    e.preventDefault()
-    console.log('Shop Now clicked')
-    try {
-      router.push('/shop')
-    } catch (error) {
-      console.error('Navigation error:', error)
-      // Fallback to window.location
-      window.location.href = '/shop'
-    }
-  }
-
-  const handleExploreSkincare = (e: React.MouseEvent) => {
-    e.preventDefault()
-    console.log('Explore Skincare clicked')
-    try {
-      router.push('/shop?category=skincare')
-    } catch (error) {
-      console.error('Navigation error:', error)
-      // Fallback to window.location
-      window.location.href = '/shop?category=skincare'
-    }
-  }
 
   return (
     <section className="relative overflow-hidden bg-secondary/50">
@@ -49,18 +23,18 @@ export function HeroSection() {
               Experience luxury beauty delivered to your door in Dar es Salaam.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <button
-                onClick={handleShopNow}
+              <Link
+                href="/shop"
                 className="inline-flex items-center justify-center rounded-lg bg-primary px-8 py-3 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
               >
                 Shop Now
-              </button>
-              <button
-                onClick={handleExploreSkincare}
+              </Link>
+              <Link
+                href="/shop?category=skincare"
                 className="inline-flex items-center justify-center rounded-lg border border-border bg-card px-8 py-3 text-sm font-medium text-foreground hover:bg-muted transition-colors"
               >
                 Explore Skincare
-              </button>
+              </Link>
             </div>
           </div>
 
